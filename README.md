@@ -1,10 +1,13 @@
 Market place - electronics store
+
 Inspired by Technodom.
 
 Goal
+
 The main aim of the project is to represent an online platform for sale with quick and understandable requests.
 
 APPS
+
 The market place consists of 4 apps and one package with general constants and other things.
 
 auth_
@@ -23,10 +26,14 @@ Description
 It’s also used popular packages that put together a framework for the entire application.
 
 Draft guidlines
-Install django project
-Create, configure and activate virtual environment
-Install all packages by the following command
+1. Install django project
+2. Create, configure and activate virtual environment
+3. Install all packages by the following command
+
 pip install -r requirements.txt
-Create a table with fields
+
+4. Create a table with fields
+
 python manage.py migrate
-Enjoy!
+
+5. Enjoy!
