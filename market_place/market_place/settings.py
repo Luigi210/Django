@@ -27,8 +27,7 @@ INSTALLED_APPS = [
 
     'auth_',
     'core',
-    'market',
-    'payments'
+    'market'
 ]
 
 MIDDLEWARE = [
