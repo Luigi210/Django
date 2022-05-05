@@ -101,7 +101,6 @@ class CurrentCityView(APIView):
 
     def post(self, request):
         try:
-            print(data)
             data = json.loads(request.body)
             city = City.objects.filter(id=data['city_id']).first()
             if not city:

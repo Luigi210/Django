@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['id', 'full_name', 'avatar']
+        fields = ['id', 'full_name', 'avatar', 'roles', 'username', 'first_name', 'last_name', 'email', 'date_joined', 'is_active']
 
     def get_full_name(self, obj):
         return '{} {}'.format(obj.first_name, obj.last_name)

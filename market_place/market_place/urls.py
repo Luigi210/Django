@@ -6,5 +6,5 @@ urlpatterns = [
     path('account/', include('auth_.urls')),
     path('core/', include('core.urls')),
     path('market/', include('market.urls')),
-    # path('payments/', include('payments.urls'))
+    path('payments/', include('payments.urls'))
 ]
