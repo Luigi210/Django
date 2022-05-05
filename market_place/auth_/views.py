@@ -45,7 +45,7 @@ class LogoutView(APIView):
 
     def post(self, request):
         try:
-            logger.info(f'login: {str(request.user.username)}')
+            # logger.info(f'login: {str(request.user.username)}')
             refresh_token = request.data["refresh_token"]
             token = RefreshToken(refresh_token)
             token.blacklist()
@@ -86,8 +86,7 @@ class ChangeDetailsView(generics.UpdateAPIView):
             serializer.is_valid(raise_exception=True)
             serializer.change_details()
             if data.get('password'):
-                serializer = ChangePasswordSerializer(data=self.request.data,
-                                                      context={'request': self.request})
+                serializer = ChangePasswordSerializer(data=self.request.data, context={'request': self.request})
                 serializer.is_valid(raise_exception=True)
                 serializer.change_password()
             user = UserDetailsSerializer(request.user)
@@ -102,6 +101,7 @@ class CurrentCityView(APIView):
 
     def post(self, request):
         try:
+            print(data)
             data = json.loads(request.body)
             city = City.objects.filter(id=data['city_id']).first()
             if not city:

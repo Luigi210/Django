@@ -24,6 +24,12 @@ class CreditCardView(viewsets.ViewSet, mixins.CreateModelMixin):
         data = request.data
         data['user'] = request.user.pk
         serializer = CreditCardSerializer(data=request.data)
+
+        if serializer.is_valid(raise_exception=True):
+            # create or update data
+            return Response(serializer.data)
+
+
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

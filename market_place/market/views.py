@@ -5,7 +5,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework import viewsets, status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-
+from .models import ProductManager
 from market.filters import ProductFilter
 from market.models import Product, ProductReview, ProductCharacteristics, Property, GroupProperties, \
     ProductAvailability
@@ -112,7 +112,7 @@ class DiscountView(viewsets.ViewSet):
         try:
             logger.info('create discount')
             data = json.loads(request.body)
-            Product.objects.set_discounts(data['product_ids'], data['discount'])
+            ProductManager.objects.set_discounts(data['product_ids'], data['discount'])
             return Response({'success': True})
         except Exception as e:
             logger.error(f'create discount - {str(e)}')
@@ -125,7 +125,7 @@ class RemoveDiscountView(viewsets.ViewSet):
             logger.info('remove discounts')
             data = json.loads(request.body)
             product_ids = data['product_ids']
-            Product.objects.remove_discounts(product_ids)
+            ProductManager.objects.remove_discounts(product_ids)
             return Response({'success': True})
         except Exception as e:
             logger.error('remove discounts')

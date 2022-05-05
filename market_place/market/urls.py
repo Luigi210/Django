@@ -14,8 +14,6 @@ router.register('product-availability', ProductAvailabilityView, basename='produ
 
 
 urlpatterns = [
-    path('products/set-discount', DiscountView.as_view({'post': 'post'})),
-    path('products/remove-discount', RemoveDiscountView.as_view({'post': 'post'})),
     path('products/<int:product_id>/reviews', ProductReviewView.as_view({'get': 'list', 'post': 'create'})),
     path('products/<int:product_id>/reviews/<int:review_id>', ProductReviewDetailsView.as_view({'delete': 'destroy'})),
 

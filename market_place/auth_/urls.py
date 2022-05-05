@@ -12,7 +12,7 @@ urlpatterns = [
     path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('logout/', LogoutView.as_view(), name='auth_logout'),
     path('register/', RegisterView.as_view(), name='register'),
-    path('change-details/', ChangeDetailsView.as_view(), name='change-details'),
-    path('cur-city/', CurrentCityView.as_view(), name='cur_city')
+    path('cur-city/', CurrentCityView.as_view(), name='cur_city'),
+    path('change-details/', ChangeDetailsView.as_view(), name='change_details')
 ]
 urlpatterns += router.urls
